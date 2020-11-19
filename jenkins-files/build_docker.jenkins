@@ -19,6 +19,7 @@ pipeline {
                     sh """
                     docker login -u $USERNAME -p $PASSWORD
                     """
+                }
             }
         }
         stage("create docker image") {
