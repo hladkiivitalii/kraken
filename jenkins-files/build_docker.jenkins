@@ -12,13 +12,31 @@ pipeline {
         timestamps()
     }
     stages {
+        stage("docker login") {
+            steps {
+                echo "============ Docker login ============"
+                withCredentials([usernamePassword(credentialsId: 'dc7a8828-3444-4ed9-942f-768871771528', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+                    sh """
+                    docker login -u $USERNAME -p $PASSWORD
+                    """
+            }
+        }
         stage("create docker image") {
             steps {
                 echo " ============== start building image =================="
                 dir ('app') {
-                	sh 'docker build -t app:latest . '
+                	sh 'docker build -t 068cuttip/app:latest . '
                 }
             }
+        }
+        stage("Docker push") {
+            steps {
+                echo " ============== push docker image =================="
+                sh '''
+                docker push 068cuttip/app:latest
+                '''
+            }
+        }
         }
     }
 }
