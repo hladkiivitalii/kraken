@@ -4,13 +4,19 @@ pipeline() {
         }
     stages {
         stage('Get') {
-            echo "============= Jenkins Get files ============="
+            steps {
+                echo "============= Jenkins Get files ============="
+            }
         }
         stage('Build') {
-            echo "============= Jenkins Build ============="
+            steps {
+                echo "============= Jenkins Build ============="
+            }
         }
         stage('Deploy') {
-            echo "============= Jenkins Deploy ============="
+            steps {
+                echo "============= Jenkins Deploy ============="
+            }
         }
     }
 }
