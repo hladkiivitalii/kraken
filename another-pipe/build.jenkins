@@ -1,0 +1,14 @@
+pipeline() {
+    agent: any
+    stages {
+        stage('Get') {
+            echo "============= Jenkins Get files ============="
+        }
+        stage('Build') {
+            echo "============= Jenkins Build ============="
+        }
+        stage('Deploy') {
+            echo "============= Jenkins Deploy ============="
+        }
+    }
+}
