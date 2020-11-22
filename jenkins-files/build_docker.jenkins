@@ -53,7 +53,7 @@ pipeline {
                 ssh root@46.101.208.229 'docker stop node-app'
                 '''
                 sh '''
-                ssh root@46.101.208.229 'docker restart -p 8080:8080 -d --name node-app 068cuttip/app:latest '
+                ssh root@46.101.208.229 'docker run -p 8080:8080 -d --name node-app 068cuttip/app:latest '
                 '''
             }
         }
