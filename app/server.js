@@ -9,7 +9,7 @@ const one = 1;
 // приложение
 const app = express();
 app.get('/', (req, res) => {
-    res.send('Hello World from node123Xy edsdf');
+    res.send('Hello World from node');
 });
 
 app.listen(port, host);

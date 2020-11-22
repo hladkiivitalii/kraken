@@ -38,5 +38,21 @@ pipeline {
                 '''
             }
         }
+        stage("Pull Image") {
+            steps {
+                echo " ============== get docker image on server =================="
+                sh '''
+                ssh root@46.101.208.229 'docker pull 068cuttip/app:latest'
+                '''
+            }
+        }
+        stage("Run Image") {
+            steps {
+                echo " ============== run docker image on server =================="
+                sh '''
+                ssh root@46.101.208.229 'docker restart -p 8080:8080 -d --name node-app 068cuttip/app:latest '
+                '''
+            }
+        }
     }
 }
